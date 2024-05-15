@@ -1,0 +1,55 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+    <h1 class="text-center">New Campground</h1>
+    <div class="col-6 offset-3">
+        <form action="/campgrounds" method="post" novalidate class="validated-form" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" type="text" name="campground[title]" id="title" required>
+                <div class="valid-feedback">Looks Good !</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="location">Location</label>
+                <input class="form-control" type="text" name="campground[location]" id="location" required>
+                <div class="valid-feedback">Marvelous!</div>
+            </div>
+            <div class="mb-3">
+                <label for="formFileMultiple" class="form-label ">Campground Images</label>
+                <input class="form-control" type="file" id="formFileMultiple" name="image" multiple>
+            </div>
+          
+            <!-- <div class="mb-3">
+                <label for="image" class="form-label">Image Url</label>
+                <input type="text" class="form-control" id="image" name="campground[image]" required>
+                <div class="valid-feedback">Magnificent !</div>
+            </div> -->
+            <div class="mb-3">
+                <label for="price" class="form-label">Campground Price</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">$</span>
+                    <input type="text" class="form-control" placeholder="0.00" aria-label="Amount (to the nearest dollar)" name="campground[price]" id="price" required>
+                    <div class="valid-feedback">Excellent !!</div>
+                </div>               
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" name="campground[description]" id="description" required></textarea>
+                <div class="valid-feedback">Well Done !</div>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success">Add Campground</button>
+            </div>
+        </form>
+        <button><a href="/campgrounds">Back</a></button>
+    </div>
+    
+</div>
+
+<!-- The class col-6 specifies that the element should take up 6 out of the 12 available columns 
+in the Bootstrap grid system. This means the element will take up half of the available width of its container.
+
+The class offset-3 is used for offsetting columns. It creates a margin on the left side of the element 
+equivalent to the width of 3 columns. This is used to create space between columns. -->
+
+
+
