@@ -1,0 +1,14 @@
+body{
+    height: 100vh;
+}
+
+.cover-container{
+    max-width: 60vw;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}

@@ -69,7 +69,7 @@ passport.serializeUser(User.serializeUser()); //store user into the session
 passport.deserializeUser(User.deserializeUser()); //get user out of the session
 
 app.use((req,res,next)=>{
-  console.log(req.session) 
+  //console.log(req.session) 
   res.locals.currentUser = req.user
   res.locals.success =req.flash('success')
   res.locals.error =req.flash('error')
@@ -88,7 +88,7 @@ app.get('/fakeUser',async(req,res)=>{
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.render('home')
 })
 
 
