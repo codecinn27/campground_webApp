@@ -9,8 +9,8 @@ This project is being created created using Node.js, Express, MongoDB, and Boots
 ## Key Feature
 
 [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-<img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white">
-<img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white">
+![Static Badge](https://img.shields.io/badge/html5-%23E34F26?style=for-the-badge&logo=html5&logoColor=white&labelColor=%23FFA500&color=%23FFA500)
+![Static Badge](https://img.shields.io/badge/css3-%23%23%231572B6?style=for-the-badge&logo=css3&logoColor=white&labelColor=%230047AB&color=%230047AB)
 <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white">
 <img src="	https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white">
 <img src="https://img.shields.io/badge/Udemy-EC5252?style=for-the-badge&logo=Udemy&logoColor=white">
