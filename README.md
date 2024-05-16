@@ -7,22 +7,26 @@ Campground Web App is a full-stack website project where users can create and re
 This project is being created created using Node.js, Express, MongoDB, and Bootstrap. Passport.js is used to handle authentication.
 
 ## Key Feature
-- HTML5 - markup language for creating web pages and web applications
-- CSS3 - used for describing the presentation of a document written in a markup language
-- Bootstrap - free and open-source front-end web framework for designing websites and web applications quickly
-- Node.js - pen-source, cross-platform JavaScript run-time environment for executing JavaScript code server-side
-- Express.js - for building web applications and APIs and connecting middleware
-- REST - REST (REpresentational State Transfer) is an architectural style for developing web services
-- MongoDB - open-source cross-platform document-oriented NoSQL database program to store details like users info, campgrounds info and comments
-- PassportJS - authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application
-- Data Associations - associating user data with the respective campgrounds and comments using reference method
-- Cloudinary - cloud-based service that provides an end-to-end solution for all your image and video needs, including uploads, storage, manipulations, optimizations, and delivery.
-- MVC (Model-View-Controller) - architectural pattern for implementing user interfaces, dividing an application into three interconnected components: Model (data), View (UI), and Controller (business logic).
+
+[![Bootstrap][Bootstrap.com]][Bootstrap-url]
+<img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white">
+<img src="	https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white">
+<img src="https://img.shields.io/badge/Udemy-EC5252?style=for-the-badge&logo=Udemy&logoColor=white">
+![Static Badge](https://img.shields.io/badge/ExpressJs-%23000000?style=for-the-badge&logo=express)
+![Static Badge](https://img.shields.io/badge/passport-%2334E27A?style=for-the-badge&logo=passport&logoColor=white&labelColor=grey&color=grey)
+![Static Badge](https://img.shields.io/badge/cloudinary-%233448C5?style=for-the-badge&logo=cloudinary&logoColor=white&labelColor=%236CB4EE&color=%236CB4EE)
 
 ## Sample
 ![image](https://github.com/codecinn27/campground_WebApp/assets/103735025/c9153389-bc64-4323-8594-5ab7d50a8e5c)
 
 ![image](https://github.com/codecinn27/campground_WebApp/assets/103735025/d18a0ecd-90f3-447f-a83b-148b0fd1db5c)
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
 
 
 ## Installation
