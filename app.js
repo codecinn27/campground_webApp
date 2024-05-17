@@ -2,7 +2,7 @@ if (process.env.NODE !=="production"){
   require('dotenv').config();
 }
 
-console.log(process.env.CLOUDINARY_CLOUD_NAME);
+//console.log(process.env.CLOUDINARY_CLOUD_NAME);
 
 const express = require('express')
 const app = express()
