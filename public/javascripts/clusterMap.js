@@ -1,6 +1,6 @@
 mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
-    container: 'map',
+    container: 'cluster-map',
     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
     // , 'mapbox://styles/mapbox/dark-v11','mapbox://styles/mapbox/dark-v10'
     style: 'mapbox://styles/mapbox/navigation-day-v1', 
@@ -125,6 +125,15 @@ map.on('load', () => {
     map.on('mouseleave', 'clusters', () => {
         map.getCanvas().style.cursor = '';
     });
+
+    map.addControl(
+        new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        })
+    );
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl(),'bottom-left');
 });
 
 // sample data in geojson
