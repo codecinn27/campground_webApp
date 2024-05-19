@@ -23,6 +23,7 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./model/user');
+const mongoSanitize = require('express-mongo-sanitize');
 
 app.use(express.static(path.join(__dirname, 'public')));// to use bootstrap
 app.set('view engine','ejs'); 
@@ -32,7 +33,9 @@ app.use(express.json());
 app.use(methodOverride('_method'))
 app.engine('ejs', ejsMate)
 
-
+//security, remove the dollar sign in the query string
+// To remove data using these defaults:
+app.use(mongoSanitize());
 
 const mongoose = require('mongoose');
 
@@ -69,6 +72,7 @@ passport.serializeUser(User.serializeUser()); //store user into the session
 passport.deserializeUser(User.deserializeUser()); //get user out of the session
 
 app.use((req,res,next)=>{
+  console.log(req.query);
   //console.log(req.session) 
   res.locals.currentUser = req.user
   res.locals.success =req.flash('success')
