@@ -1,7 +1,6 @@
 if (process.env.NODE !=="production"){
   require('dotenv').config();
 }
-
 //console.log(process.env.CLOUDINARY_CLOUD_NAME);
 
 const express = require('express')
@@ -50,11 +49,14 @@ db.once("open",()=>{
     console.log("Database connected");
 })
 const sessionConfig = {
+  name:"session",
   secret : 'thisshouldbeabettersecret',
   resave: false, 
   saveUninitialized: true,
   cookie: {
     httpOnly: true,
+    // uncommon this when deploy, allow user to access only through https, localhost is not https 
+    // secure: true,
     expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
     maxAge: 1000 * 60 * 60 * 24 * 7
   }
