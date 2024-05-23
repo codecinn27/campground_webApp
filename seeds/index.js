@@ -1,8 +1,12 @@
+if (process.env.NODE !=="production"){
+  require('dotenv').config();
+}
 const Campground = require('../model/campground'); //outside the directory then ..
 const cities = require('./cities_malaysia');
 const { descriptors, places} = require('./seedHelpers'); //inside the directory then .
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp', {
+const db_url = process.env.MONGO_URL;
+mongoose.connect( db_url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });

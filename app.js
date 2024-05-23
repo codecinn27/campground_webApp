@@ -23,6 +23,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./model/user');
 const mongoSanitize = require('express-mongo-sanitize');
+const MongoStore = require('connect-mongo');
+const db_url = process.env.MONGO_URL || 'mongodb://localhost:27017/yelp-camp';
 
 app.use(express.static(path.join(__dirname, 'public')));// to use bootstrap
 app.set('view engine','ejs'); 
@@ -31,14 +33,15 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.use(express.json());
 app.use(methodOverride('_method'))
 app.engine('ejs', ejsMate)
-
+const helmet = require('helmet');
 //security, remove the dollar sign in the query string
 // To remove data using these defaults:
 app.use(mongoSanitize());
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp', {
+//'mongodb://127.0.0.1:27017/yelp-camp'
+mongoose.connect( db_url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -48,9 +51,24 @@ db.on("error", console.error.bind(console, "connection error:"));
 db.once("open",()=>{
     console.log("Database connected");
 })
+
+const secret = process.env.SECRET || 'thisshouldbeabettersecret'
+const store = new MongoStore({
+  mongoUrl : db_url,
+  secret,
+  //in seconds
+  touchAfter: 24*60*60
+})
+
+//checking mongosession error
+store.on("error", function(e){
+  console.log("Session store error", e);
+})
+
 const sessionConfig = {
+  store, //this is from mongo session
   name:"session",
-  secret : 'thisshouldbeabettersecret',
+  secret : secret,
   resave: false, 
   saveUninitialized: true,
   cookie: {
@@ -64,6 +82,7 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 app.use(flash());
+app.use(helmet({contentSecurityPolicy: false}));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -74,7 +93,7 @@ passport.serializeUser(User.serializeUser()); //store user into the session
 passport.deserializeUser(User.deserializeUser()); //get user out of the session
 
 app.use((req,res,next)=>{
-  console.log(req.query);
+  //console.log(req.query);
   //console.log(req.session) 
   res.locals.currentUser = req.user
   res.locals.success =req.flash('success')

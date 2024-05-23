@@ -1,10 +1,11 @@
+
 mapboxgl.accessToken = mapToken;
 //mapboxgl.accessToken = process.env.MAPBOX_TOKEN;
 const map = new mapboxgl.Map({
     container: 'cluster-map',
     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-    // , 'mapbox://styles/mapbox/dark-v11','mapbox://styles/mapbox/dark-v10'
-    style: 'mapbox://styles/mapbox/navigation-day-v1', 
+    // , 'mapbox://styles/mapbox/dark-v11','mapbox://styles/mapbox/navigation-day-v1'
+    style: 'mapbox://styles/mapbox/dark-v10' , 
     //112.50027778, 2.50027778
     //
     center: [107.167,2.4499],
@@ -12,6 +13,7 @@ const map = new mapboxgl.Map({
 });
 
 map.on('load', () => {
+    console.log("Map Loaded !!");
     // Add a new source from our GeoJSON data and
     // set the 'cluster' option to true. GL-JS will
     // add the point_count property to your source data.

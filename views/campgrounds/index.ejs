@@ -1,4 +1,5 @@
 <% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 <div id="cluster-map"></div>
 
 <h1>All Campgrounds</h1>
@@ -34,11 +35,12 @@ available columns in the grid system. -->
 <% } %>
 
 <script>
-    const mapToken = "<%-process.env.MAPBOX_TOKEN%>";
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
     //modify this to be suited with mapbox geojson
-    const campgrounds = {features: <%- JSON.stringify(campgrounds) %> }
+    const campgrounds = {features: <%-JSON.stringify(campgrounds)%> };
 </script>
-<script src="/javascripts/clusterMap.js"></script>
-<!-- Load the `mapbox-gl-geocoder` plugin.map searchbar -->
+
+ <!-- Load the `mapbox-gl-geocoder` plugin.map searchbar -->
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+
+<script src="/javascripts/clusterMap.js"></script>
