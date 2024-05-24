@@ -2,6 +2,7 @@ if (process.env.NODE !=="production"){
   require('dotenv').config();
 }
 const Campground = require('../model/campground'); //outside the directory then ..
+const User = require('../model/user');
 const cities = require('./cities_malaysia');
 const { descriptors, places} = require('./seedHelpers'); //inside the directory then .
 const mongoose = require('mongoose');
@@ -22,11 +23,12 @@ const sample = array => array[Math.floor(Math.random()* array.length)];
 const seedDb = async()=>{
     await Campground.deleteMany({});
     const citiesLength = cities.length; // Store the length of the cities array
+    const firstUser = await User.findOne().sort({ _id: 1 }).select('_id');
     for(let i=0; i<50; i++){
         const randomIndex = Math.floor(Math.random() * citiesLength);
         const price = Math.floor(Math.random()*20)+10;
         const camp = new Campground({
-            author: '650858af24ba7f2078ce2f0b',
+            author: firstUser._id,
             location: `${cities[randomIndex].city} ${cities[randomIndex].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             // image:  `https://source.unsplash.com/random/640x480?camping,${i} `, //https://random.imagecdn.app/500/500

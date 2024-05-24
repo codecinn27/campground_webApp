@@ -33,7 +33,7 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.use(express.json());
 app.use(methodOverride('_method'))
 app.engine('ejs', ejsMate)
-const helmet = require('helmet');
+//const helmet = require('helmet');
 //security, remove the dollar sign in the query string
 // To remove data using these defaults:
 app.use(mongoSanitize());
@@ -82,7 +82,7 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 app.use(flash());
-app.use(helmet({contentSecurityPolicy: false}));
+//app.use(helmet({contentSecurityPolicy: false}));
 
 app.use(passport.initialize());
 app.use(passport.session());
